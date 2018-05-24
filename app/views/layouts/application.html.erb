@@ -16,9 +16,37 @@
           <%= link_to "Blocipedia", welcome_index_path %>
         </li>
         <li class="nav-item">
-          <li><%= link_to "About", welcome_about_path %></li>
+          <%= link_to "About", welcome_about_path %>
         </li>
+        <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Sign Out", sign_out %>
+        </li>
+        <li class="nav-item">
+          <% current_user.email %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign In", new_user_session %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration %>
+        </li>
+        <% end %>
       </ul>
+
+      <% if flash[:notice] %>
+         <div class="alert alert-success">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:notice] %>
+         </div>
+       <% elsif flash[:alert] %>
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:alert] %>
+         </div>
+       <% end %>
+
     <%= yield %>
   </div>
   </body>
