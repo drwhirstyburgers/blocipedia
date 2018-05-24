@@ -4,10 +4,10 @@ class User < ApplicationRecord
   attr_writer :login
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
-  
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
