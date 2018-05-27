@@ -18,12 +18,12 @@
         <li class="nav-item">
           <%= link_to "About", welcome_about_path %>
         </li>
-        <% if current_user %>
+        <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Sign Out", sign_out %>
+          <%= link_to "Sign Out", destroy_user_session_url, method: :delete %> 
         </li>
         <li class="nav-item">
-          <% current_user.email %>
+          <%= link_to current_user.username, edit_user_registration_path %>
         </li>
         <% else %>
         <li class="nav-item">
