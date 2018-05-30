@@ -11,6 +11,8 @@
     </div>
   </div>
   <% end %>
-  <%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-success' %>
+  <% if current_user %>
+    <%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-success' %>
+  <% end %>
    </div>
 </div>
