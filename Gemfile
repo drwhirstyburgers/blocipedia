@@ -39,6 +39,7 @@ gem 'thor', '0.20.0'
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'sqlite3'
+  gem 'faker'
 end
 
 group :development, :test do
