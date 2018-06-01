@@ -45,7 +45,7 @@
 <% end %>
 
 <% if current_user.premium? %>
-  <%= link_to "Downgrade Account", downgrade_user_path(current_user), data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+  <%= link_to "Downgrade Account", downgrade_user_path(current_user), data: { confirm: "Are you sure? Doing so will make all private wikis public." }, class: 'btn btn-warning' %>
 <% end %>
 
 
