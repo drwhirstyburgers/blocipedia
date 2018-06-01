@@ -38,8 +38,18 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h4>Change Account</h4>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<% if current_user.standard? %>
+  <%= link_to "Upgrade Account", new_charge_path, class: 'btn btn-success' %>
+<% end %>
+
+<% if current_user.premium? %>
+  <%= link_to "Downgrade", downgrade_user_path(current_user), data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+<% end %>
+
+
+
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %><br/>
 
 <%= link_to "Back", :back %>
