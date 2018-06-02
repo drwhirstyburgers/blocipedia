@@ -1,7 +1,18 @@
-<h1><%= @wiki.title %></h1>
+<div>
+  <h1>
+    <%= @wiki.title %> <br>
+  </h1>
+  <small>
+       submitted <%= time_ago_in_words(@wiki.created_at) %> ago
+       <% if @wiki.private %>
+         Private Wiki
+       <% end %>
+  </small>
+</div>
+
 <div class="row">
   <div class="col-md-8">
-    <p><%= @wiki.body %></p>
+    <p><%= markdown(@wiki.body) %></p>
   </div>
   <% if current_user %>
   <div class="col-md-4">
