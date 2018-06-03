@@ -3,10 +3,12 @@
     <%= @wiki.title %> <br>
   </h1>
   <small>
+    <% if @wiki.private %>
+      Private Wiki
+    <% end %>
+  </small>
+  <small>
        submitted <%= time_ago_in_words(@wiki.created_at) %> ago
-       <% if @wiki.private %>
-         Private Wiki
-       <% end %>
   </small>
 </div>
 

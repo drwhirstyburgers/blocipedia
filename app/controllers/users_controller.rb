@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
 
   def downgrade
-    @wikis = current_user.wikis
+    @user = User.find(params[:id])
 
-    @wikis.unscoped.update_all(private: 'false')
-    current_user.update_attribute(:role, 'standard')
-
-    flash[:notice] = "#{current_user.username} you're account has been downgraded"
-    redirect_to edit_user_registration_path
+    if @user.downgrade!
+      flash[:notice] = "You've been downgraded to standard. Your private wikis are now public."
+      redirect_to :back
+    else
+      flash[:error] = "There was an error creating your account. Please try again."
+      redirect_to :back
+    end
   end
 
 end
