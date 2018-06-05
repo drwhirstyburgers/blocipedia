@@ -1,6 +1,6 @@
 class Wiki < ApplicationRecord
   belongs_to :user, required: false
-  has_many :users, through: :collaborators
+  has_many :collaborators
 
   before_save { self.private == false }
 
