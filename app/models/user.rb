@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :wikis, dependent: :destroy
+  has_many :wiki_collaborators, through: :collaborators, source: :wikis
 
   after_initialize { self.role ||= :standard }
 
@@ -9,7 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          authentication_keys: [:login]
 
-  validates :username, presence: :true, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
 
   attr_writer :login
 
