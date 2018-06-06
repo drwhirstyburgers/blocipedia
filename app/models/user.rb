@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :wikis, dependent: :destroy
-  has_many :wiki_collaborators, through: :collaborators, source: :wikis
+  has_many :collective_wikis, through: :collaborators, source: :wikis
 
   after_initialize { self.role ||= :standard }
 
