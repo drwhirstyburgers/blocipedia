@@ -40,6 +40,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'sqlite3'
   gem 'faker'
+  gem 'sunspot_solr'
 end
 
 group :development, :test do
@@ -58,3 +59,5 @@ gem 'pundit'
 gem 'stripe'
 
 gem 'redcarpet'
+
+gem 'sunspot_rails'

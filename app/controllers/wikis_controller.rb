@@ -55,7 +55,11 @@ class WikisController < ApplicationController
     end
   end
 
-
+  def search
+    @search = User.search(:include => [:email]) do
+      keywords(params[:q])
+    end
+  end
 
   private
 

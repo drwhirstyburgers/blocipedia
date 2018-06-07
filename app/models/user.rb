@@ -37,4 +37,8 @@ class User < ApplicationRecord
       end
     end
   end
+
+  searchable do
+    text :username
+  end
 end

@@ -2,6 +2,10 @@
 <div class="row">
   <div class="col-md-4">
     <p>Blocipedia renders in Markdown!</p>
+    <%= form_tag search_index_path, :method => :get do %>
+  <%= text_field_tag :search, params[:search], style:"width:300px; height:30px;" %>
+  <%= submit_tag "Search!", :name => nil, class: "btn btn-default"%>
+<% end %>
   </div>
   <div class="col-md-8">
     <%= render partial: 'form', locals: { wiki: @wiki } %>
