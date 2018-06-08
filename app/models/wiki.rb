@@ -1,7 +1,6 @@
 class Wiki < ApplicationRecord
-  belongs_to :user, required: false
-
-  before_save { self.private == false }
+  belongs_to :user
+  has_many :wiki_collaborators, through: :collaborators, source: :user
 
   default_scope { order('created_at DESC') }
 
