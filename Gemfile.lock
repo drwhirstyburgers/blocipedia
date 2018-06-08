@@ -57,6 +57,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-guests (0.6.1)
+      devise
     diff-lcs (1.3)
     erubi (1.7.1)
     execjs (2.7.0)
@@ -208,6 +210,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   devise
+  devise-guests
   faker
   figaro
   jbuilder (~> 2.5)

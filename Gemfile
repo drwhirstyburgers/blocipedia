@@ -58,3 +58,5 @@ gem 'pundit'
 gem 'stripe'
 
 gem 'redcarpet'
+
+gem 'devise-guests'
