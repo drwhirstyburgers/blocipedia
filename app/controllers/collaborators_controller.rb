@@ -23,7 +23,7 @@ class CollaboratorsController < ApplicationController
 
     if @collaborator.destroy
       flash[:notice] = "\"#{User.find_by_id(@collaborator.user_id).username}\" was removed successfully."
-      redirect_to wikis_path
+      redirect_to edit_wiki_path(@wiki)
     else
       flash.now[:alert] = "There was an error removing the user."
       redirect_to edit_wiki_path(@wiki)
