@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :wikis
+  resources :wikis do
+    resources :collaborations, only: [:create, :destroy]
+  end
+
+  match "wikis/:wiki_id/collaborations" => "collaborations#create", :as => "create_collaboration", via: [:get, :post]
 
   devise_for :users
 
