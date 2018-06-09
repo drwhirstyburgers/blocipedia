@@ -1,4 +1,6 @@
-<%= form_tag [wiki, collaboration] do %>
+<% if @wiki.user == current_user %>
+<%= form_tag [wiki, collaborator] do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Add User" %>
+<% end %>
 <% end %>

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :wikis, dependent: :destroy
   has_many :collaborators
-  has_many :wiki_collaborations, through: :collaborators, source: :wikis
+  has_many :wiki_collaborations, through: :collaborators, source: :wiki
 
   after_initialize { self.role ||= :standard }
 
@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
 
   attr_writer :login
+
+  scope :all_except, -> (user) { where.not(id: user.id) }
 
   def login
     @login || self.username || self.email

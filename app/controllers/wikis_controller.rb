@@ -28,6 +28,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @collaborator = Collaborator.new
+    @collaborators = @wiki.user
   end
 
   def update
