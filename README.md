@@ -17,7 +17,6 @@ Users can create, edit and collaborate on markdown wikis relating to all things 
 - Users can create private wikis
 - Users can edit wikis using Markdown syntax
 - Users can add and remove collaborators for private wikis
-- Users have readable URLs on wikis
 
 ## Built With
 
