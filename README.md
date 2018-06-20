@@ -9,7 +9,7 @@ Users can create, edit and collaborate on markdown wikis relating to all things 
 ## Project Objectives
 
 - Users can sign up for a free account by providing a user name, password and email
-- Users can sign in and out of Brewpedia
+- Users can sign in and out of Blocipedia
 - Users with a standard account, can create, read, update, and delete public wikis
 - User roles available: admin, standard, or premium
 - Development database is seeded automatically with users and wikis
