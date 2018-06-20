@@ -8,7 +8,7 @@ class User < ApplicationRecord
   after_initialize { self.role ||= :standard }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:login]
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
